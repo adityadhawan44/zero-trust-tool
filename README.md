@@ -40,9 +40,26 @@ Backend: `http://localhost:4000`
    `git push -u origin main`
 
 ## Deploy publicly
-- Frontend: deploy `client` on Vercel or Netlify
-- Backend: deploy `server` on Render or Railway
-- Before deploying, switch the frontend API URL in `client/src/services/api.js` to your hosted backend URL
+### Backend on Render
+1. In Render, create a new `Web Service`
+2. Connect the GitHub repo: `adityadhawan44/zero-trust-tool`
+3. Set `Root Directory` to `server`
+4. Set `Build Command` to: `npm install`
+5. Set `Start Command` to: `npm start`
+6. Add environment variable:
+   `CLIENT_URLS=https://your-vercel-app-url.vercel.app,http://localhost:5173`
+
+### Frontend on Vercel
+1. In Vercel, import the same GitHub repo
+2. Set the `Root Directory` to `client`
+3. Add environment variable:
+   `VITE_API_BASE_URL=https://your-render-service.onrender.com/api`
+4. Deploy
+
+### Important
+- Deploy the backend first so you know the Render URL
+- Then paste that Render URL into the Vercel environment variable
+- After Vercel gives you the frontend URL, add that URL to `CLIENT_URLS` on Render and redeploy the backend
 
 ## Suggested presentation flow
 1. Log in as admin on a trusted device and request `admin-dashboard`.
