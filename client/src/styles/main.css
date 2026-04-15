@@ -1,0 +1,278 @@
+:root {
+  --bg: #f5efe4;
+  --panel: rgba(255, 252, 245, 0.86);
+  --text: #172033;
+  --muted: #5b6475;
+  --border: rgba(23, 32, 51, 0.12);
+  --accent: #0f766e;
+  --danger: #991b1b;
+  --shadow: 0 22px 48px rgba(39, 32, 18, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(194, 65, 12, 0.18), transparent 25%),
+    linear-gradient(135deg, #efe6d5 0%, #f8f5ee 52%, #ebe0d1 100%);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.auth-shell,
+.dashboard-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.hero-panel,
+.form-panel,
+.panel,
+.metric-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.hero-panel {
+  padding: 3rem;
+}
+
+.form-panel,
+.panel,
+.metric-card {
+  padding: 1.4rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 4vw, 4.7rem);
+  line-height: 0.98;
+  margin-bottom: 1rem;
+}
+
+p,
+span,
+label {
+  color: var(--muted);
+}
+
+.demo-grid,
+.metric-grid,
+.dashboard-grid,
+.table-list,
+.auth-form,
+.access-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.demo-grid {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-top: 2rem;
+}
+
+.demo-card,
+.primary-button,
+.secondary-button {
+  border: none;
+  border-radius: 18px;
+  transition: transform 150ms ease;
+}
+
+.demo-card {
+  padding: 1rem;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(15, 118, 110, 0.15);
+  cursor: pointer;
+}
+
+.mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.mode-switch button {
+  padding: 0.9rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+}
+
+.mode-switch .active {
+  background: var(--text);
+  color: #fff;
+}
+
+.auth-form label,
+.access-form label {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--text);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(23, 32, 51, 0.14);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.primary-button,
+.secondary-button {
+  padding: 0.95rem 1.2rem;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, var(--text), #254766);
+  color: #fff;
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.success-message {
+  color: #166534;
+}
+
+.error-message {
+  color: var(--danger);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 2rem 0 1rem;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.user-badge {
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border);
+}
+
+.metric-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metric-card strong {
+  font-size: 2rem;
+}
+
+.dashboard-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-bottom: 2rem;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.table-row,
+.log-row,
+.decision-card {
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 32, 51, 0.08);
+}
+
+.log-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1rem;
+}
+
+.decision-card.allow {
+  background: rgba(22, 101, 52, 0.1);
+}
+
+.decision-card.deny {
+  background: rgba(153, 27, 27, 0.09);
+}
+
+.status-allow {
+  color: #166534;
+  font-weight: 700;
+}
+
+.status-deny {
+  color: #991b1b;
+  font-weight: 700;
+}
+
+.loading-state {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.4rem;
+}
+
+@media (max-width: 920px) {
+  .auth-shell,
+  .dashboard-grid,
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .topbar-actions,
+  .log-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
